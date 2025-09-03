@@ -1,0 +1,17 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+/* (Opcional) Define tokens de diseño aquí */
+@theme {
+    --color-brand-50: #eef2ff;
+    --color-brand-500: #6366f1;
+    --color-brand-700: #4338ca;
+}
+
+/* Utilidades propias si querés */
+/* @utility .container { @apply max-w-6xl mx-auto px-4; } */
+
+html,
+body {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,198 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/Navbar.astro";
+import Hero from "@/components/Hero.astro";
+import Carousel from "@/components/Carousel.astro";
+import Section from "@/components/Section.astro";
+import ServiciosGrid from "@/components/ServiciosGrid.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<BaseLayout
+	title="South Mining Service S.A."
+	description="Ingeniería, obras y servicios para minería, petróleo y obras. Comodoro Rivadavia y Añelo."
+>
+	<Navbar />
+	<Hero />
+	<Carousel />
+
+	<!-- Nosotros -->
+	<Section
+		id="nosotros"
+		title="Ingeniería al servicio de la industria minera, petrolera y de obras"
+		subtitle="Más de 20 años de experiencia acompañando el crecimiento de la Patagonia y la Cuenca Neuquina."
+		bg="gray"
+	>
+		<!-- Texto -->
+		<div class="order-1 md:order-1">
+			<h3 class="font-semibold mb-2">Qué hacemos</h3>
+			<p class="text-slate-700 leading-relaxed">
+				South Mining Service S.A. (SMSA) es una empresa dedicada a
+				brindar
+				<strong>soluciones integrales</strong> en movimiento de suelos, obras
+				viales, construcción y servicios para yacimientos petroleros y mineros.
+				Nuestra misión es aportar <strong
+					>ingeniería, logística y equipamiento de última generación</strong
+				>, garantizando eficiencia, seguridad y cumplimiento en cada
+				proyecto.
+			</p>
+			<p class="text-slate-700 leading-relaxed mt-4">
+				Contamos con sedes en <strong>Comodoro Rivadavia</strong> y <strong
+					>Añelo</strong
+				>, lo que nos permite operar estratégicamente en los principales
+				polos de desarrollo energético de la región.
+			</p>
+		</div>
+
+		<!-- Imagen -->
+		<div
+			class="order-2 md:order-2 rounded-lg border overflow-hidden bg-neutral-100 md:aspect-video"
+		>
+			<img
+				src="/images/smssa_p10_04.webp"
+				alt="Obras y movimiento de suelos SMSA"
+				class="w-full h-full object-cover"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+
+		<!-- Cierre: ocupa todo el ancho debajo -->
+		<div
+			class="col-span-2 order-3 mt-6 font-semibold leading-relaxed text-slate-900"
+		>
+			En SMSA estamos comprometidos con el <strong
+				>crecimiento de nuestro país</strong
+			>, acompañando a nuestros clientes en cada desafío, desde la <strong
+				>planificación</strong
+			> hasta la
+			<strong>ejecución final</strong> de la obra.
+		</div>
+	</Section>
+
+	<!-- Servicios -->
+	<ServiciosGrid />
+
+	<!-- Obras / Proyectos -->
+	<Section
+		id="obras"
+		title="Obras y Proyectos"
+		subtitle="Frentes recientes y trabajos destacados"
+		bg="gray"
+	>
+		<div
+			class="aspect-[4/3] bg-[url('/images/carrusel_01.webp')] bg-cover bg-center rounded-lg border"
+		>
+		</div>
+		<div
+			class="aspect-[4/3] bg-[url('/images/carrusel_02.webp')] bg-cover bg-center rounded-lg border"
+		>
+		</div>
+	</Section>
+
+	<!-- Clientes -->
+	<Section
+		id="clientes"
+		title="Clientes"
+		subtitle="Empresas y organismos que confían en SMSA"
+		bg="gray"
+	>
+		<div class="max-w-7xl mx-auto px-4">
+			<div
+				class="grid gap-x-12 gap-y-10 justify-items-center
+                grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7"
+			>
+				<img
+					src="/images/clientes/ypf.webp"
+					alt="YPF"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/petro-chubut.webp"
+					alt="PetroChubut"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/cerro-negro.webp"
+					alt="Cerro Negro"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/minera-santa-cruz.webp"
+					alt="Minera Santa Cruz"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/gobierno-chubut.webp"
+					alt="Gobierno del Chubut"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/easy.webp"
+					alt="Easy Cencosud"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+				<img
+					src="/images/clientes/municipalidad-comodoro.webp"
+					alt="Municipalidad"
+					class="h-[clamp(96px,10vw,300px)] w-auto object-contain"
+				/>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Descargas -->
+	<Section
+		id="descargas"
+		title="Descargas"
+		subtitle="Carpeta institucional y habilitaciones"
+		bg="gray"
+	>
+		<a
+			href="/docs/Carpeta-SMSA.pdf"
+			class="px-5 py-3 inline-block rounded-lg border"
+			>Carpeta Institucional (PDF)</a
+		>
+		<div class="aspect-video bg-neutral-100 rounded-lg border"></div>
+	</Section>
+
+	<!-- Contacto -->
+	<Section
+		id="contacto"
+		title="Contacto"
+		subtitle="Escribinos y coordinamos tu proyecto"
+	>
+		<form class="space-y-3">
+			<input
+				class="w-full border rounded px-3 py-2"
+				placeholder="Nombre"
+				required
+			/>
+			<input
+				class="w-full border rounded px-3 py-2"
+				type="email"
+				placeholder="Email"
+				required
+			/>
+			<textarea
+				class="w-full border rounded px-3 py-2"
+				placeholder="Mensaje"
+				rows="4"></textarea>
+			<button
+				class="px-5 py-3 rounded-lg bg-yellow-400 text-black font-semibold"
+				>Enviar</button
+			>
+		</form>
+		<div class="space-y-2 text-sm">
+			<p>Lun a Vie 9–18 hs</p>
+			<p>Tel: 2975362519 – 2974046488</p>
+			<p>Email: info@southmining-sa.com</p>
+			<a
+				class="px-5 py-3 inline-block rounded-lg border"
+				href="https://wa.me/549297XXXXXX">WhatsApp directo</a
+			>
+		</div>
+	</Section>
+
+	<Footer />
+</BaseLayout>

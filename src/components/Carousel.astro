@@ -1,0 +1,46 @@
+---
+const images = [
+    "/images/smssa_p14_06.webp",
+    "/images/smssa_p15_02.webp",
+    "/images/smssa_p16_05.webp",
+];
+---
+
+<style>
+    .track {
+        display: flex;
+        transition: transform 0.6s ease;
+    }
+</style>
+<section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-10">
+        <div class="overflow-hidden rounded-xl border border-neutral-200">
+            <div class="track" id="track">
+                {
+                    images.map((src) => (
+                        <img
+                            src={src}
+                            alt="obra"
+                            class="w-full shrink-0 object-cover aspect-[16/9]"
+                            loading="lazy"
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:raw>
+    (() => {
+        const track = document.getElementById("track");
+        if (!track) return;
+        let idx = 0,
+            total = track.children.length;
+        const go = () => {
+            idx = (idx + 1) % total;
+            track.style.transform = `translateX(-${idx * 100}%)`;
+        };
+        setInterval(go, 3500);
+    })();
+</script>

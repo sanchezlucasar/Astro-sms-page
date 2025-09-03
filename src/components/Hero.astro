@@ -1,0 +1,49 @@
+---
+const whatsapp = "https://wa.me/549297XXXXXX"; // reemplazar
+const brochure = "/docs/Carpeta-SMSA.pdf"; // subir tu carpeta al /public/docs
+// Elegí una imagen extraída del PDF (WEBP) y copiala a /public/images/ si querés:
+const heroImg = "/images/carrusel_02.webp"; // sugerencia: smssa_p16_02.webp
+---
+
+<section class="relative">
+    <div class="relative h-[72vh] w-full">
+        <img
+            src={heroImg}
+            alt="Obras y movimiento de suelos"
+            class="h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center">
+        <div class="max-w-6xl mx-auto px-4 text-white">
+            <p class="uppercase tracking-widest text-yellow-400 font-semibold">
+                Ingeniería, obras y servicios
+            </p>
+            <h1
+                class="mt-2 text-4xl md:text-6xl font-extrabold max-w-3xl leading-tight"
+            >
+                South Mining Service S.A.
+            </h1>
+            <p class="mt-4 text-lg max-w-2xl text-white/90">
+                Soluciones integrales para industrias minera, petrolera y de
+                obras: movimiento de suelos, obras viales, piping, servicios
+                ambientales y logística.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a
+                    href={whatsapp}
+                    class="px-5 py-3 rounded-lg bg-yellow-400 text-black font-semibold"
+                    >Contactanos</a
+                >
+                <a
+                    class="px-5 py-3 rounded-lg border border-white/70"
+                    href="/docs/Carpeta-SMSA.pdf"
+                    download="Carpeta-SMSA.pdf">Descargá nuestra carpeta</a
+                >
+            </div>
+            <p class="mt-6 text-sm text-white/80">
+                Comodoro Rivadavia – Añelo • Lun a Vie 9–18 hs
+            </p>
+        </div>
+    </div>
+</section>
