@@ -17,22 +17,46 @@ const brandColor = "text-yellow-400";
         <!-- Desktop -->
         <ul class="hidden md:flex gap-6 text-base">
             <li>
-                <a href={`${import.meta.env.BASE_URL}#nosotros`}>Nosotros</a>
-            </li>
-            <li>
-                <a href="#servicios" class="hover:text-yellow-400">Servicios</a>
-            </li>
-            <li><a href="#obras" class="hover:text-yellow-400">Obras</a></li>
-            <li>
-                <a href="#clientes" class="hover:text-yellow-400">Clientes</a>
-            </li>
-            <li>
-                <a href="/Astro-sms-page/galeria" class="hover:text-yellow-400"
-                    >Galería</a
+                <a
+                    href={`${import.meta.env.BASE_URL}#nosotros`}
+                    class="hover:text-yellow-400">Nosotros</a
                 >
             </li>
             <li>
-                <a href="#contacto" class="hover:text-yellow-400">Contacto</a>
+                <a
+                    href={`${import.meta.env.BASE_URL}"#servicios/`}
+                    class="hover:text-yellow-400">Servicios</a
+                >
+                <a
+                    href={`${import.meta.env.BASE_URL}contacto/`}
+                    class="hover:text-yellow-400">Contacto</a
+                >
+            </li>
+            <li>
+                <a
+                    href={`${import.meta.env.BASE_URL}obras/`}
+                    class="hover:text-yellow-400">Obras</a
+                >
+            </li>
+            <li>
+                <a
+                    href={`${import.meta.env.BASE_URL}clientes/`}
+                    class="hover:text-yellow-400">Clientes</a
+                >
+            </li>
+            <li>
+                <a
+                    href={`${import.meta.env.BASE_URL}galeria/`}
+                    class="hover:text-yellow-400"
+                    >Galería
+                </a>
+            </li>
+            <li>
+                <a
+                    href={`${import.meta.env.BASE_URL}contacto/`}
+                    class="hover:text-yellow-400"
+                    >Contacto
+                </a>
             </li>
         </ul>
 
@@ -90,38 +114,38 @@ const brandColor = "text-yellow-400";
             </li>
         </ul>
     </div>
+
+    <style>
+        [data-open="true"] .icon-hamb {
+            display: none;
+        }
+        [data-open="true"] .icon-close {
+            display: inline;
+        }
+        [data-open="false"] .icon-hamb {
+            display: inline;
+        }
+        [data-open="false"] .icon-close {
+            display: none;
+        }
+    </style>
+
+    <script is:raw>
+        (() => {
+            const btn = document.getElementById("menuToggle");
+            const menu = document.getElementById("mobileMenu");
+            if (!btn || !menu) return;
+            const setOpen = (open) => {
+                btn.dataset.open = String(open);
+                btn.setAttribute("aria-expanded", String(open));
+                menu.classList.toggle("hidden", !open);
+            };
+            btn.addEventListener("click", () =>
+                setOpen(btn.dataset.open !== "true"),
+            );
+            menu.querySelectorAll('a[data-close="true"]').forEach((a) =>
+                a.addEventListener("click", () => setOpen(false)),
+            );
+        })();
+    </script>
 </nav>
-
-<style>
-    [data-open="true"] .icon-hamb {
-        display: none;
-    }
-    [data-open="true"] .icon-close {
-        display: inline;
-    }
-    [data-open="false"] .icon-hamb {
-        display: inline;
-    }
-    [data-open="false"] .icon-close {
-        display: none;
-    }
-</style>
-
-<script is:raw>
-    (() => {
-        const btn = document.getElementById("menuToggle");
-        const menu = document.getElementById("mobileMenu");
-        if (!btn || !menu) return;
-        const setOpen = (open) => {
-            btn.dataset.open = String(open);
-            btn.setAttribute("aria-expanded", String(open));
-            menu.classList.toggle("hidden", !open);
-        };
-        btn.addEventListener("click", () =>
-            setOpen(btn.dataset.open !== "true"),
-        );
-        menu.querySelectorAll('a[data-close="true"]').forEach((a) =>
-            a.addEventListener("click", () => setOpen(false)),
-        );
-    })();
-</script>
