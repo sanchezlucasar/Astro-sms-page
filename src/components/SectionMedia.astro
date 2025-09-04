@@ -1,0 +1,65 @@
+---
+const {
+    id,
+    title,
+    subtitle = "",
+    bg = "white",
+    reverse = false, // invierte columnas en desktop
+    media = "video", // "video" | "image"
+    srcWebm = "", // para video
+    srcMp4 = "", // opcional fallback
+    poster = "", // imagen de poster del video
+    imgSrc = "", // para imagen
+    imgAlt = "",
+} = Astro.props;
+---
+
+<section id={id} class={`py-16 ${bg === "gray" ? "bg-slate-50" : "bg-white"}`}>
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-2xl mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
+            {subtitle && <p class="text-slate-600 mt-2">{subtitle}</p>}
+        </div>
+
+        <div class={`grid md:grid-cols-2 gap-8 items-center`}>
+            <!-- Texto -->
+            <div class={reverse ? "order-2 md:order-1" : "order-1"}>
+                <slot />
+                {/* acá escribís los párrafos */}
+            </div>
+
+            <!-- Media -->
+            <div
+                class={`${reverse ? "order-1 md:order-2" : "order-2"} rounded-xl overflow-hidden border aspect-video`}
+            >
+                {
+                    media === "video" ? (
+                        <video
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            preload="metadata"
+                            poster={poster}
+                            class="w-full h-full object-cover"
+                        >
+                            {srcWebm && (
+                                <source src={srcWebm} type="video/webm" />
+                            )}
+                            {srcMp4 && <source src={srcMp4} type="video/mp4" />}
+                            Tu navegador no soporta video HTML5.
+                        </video>
+                    ) : (
+                        <img
+                            src={imgSrc}
+                            alt={imgAlt}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    )
+                }
+            </div>
+        </div>
+    </div>
+</section>
