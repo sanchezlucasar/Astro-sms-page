@@ -51,7 +51,7 @@ import SectionClientes from "@/components/SectionClientes.astro";
 			class="order-2 md:order-2 rounded-lg border overflow-hidden bg-neutral-100 md:aspect-video"
 		>
 			<img
-				src="/Astro-sms-page/images/smssa_p10_04.webp"
+				src={`${import.meta.env.BASE_URL}images/smssa_p10_04.webp`}
 				alt="Obras y movimiento de suelos SMSA"
 				class="w-full h-full object-cover"
 				loading="lazy"
@@ -83,11 +83,13 @@ import SectionClientes from "@/components/SectionClientes.astro";
 		bg="gray"
 	>
 		<div
-			class="aspect-[4/3] bg-[url('/Astro-sms-page/images/carrusel_01.webp')] bg-cover bg-center rounded-lg border"
+			class="aspect-[4/3] bg-cover bg-center rounded-lg border"
+			style={`background-image: url('${import.meta.env.BASE_URL}images/galeria/galeria-1.webp')`}
 		>
 		</div>
 		<div
-			class="aspect-[4/3] bg-[url('/Astro-sms-page/images/carrusel_02.webp')] bg-cover bg-center rounded-lg border"
+			class="aspect-[4/3] bg-cover bg-center rounded-lg border"
+			style={`background-image: url('${import.meta.env.BASE_URL}images/galeria/galeria-13.webp')`}
 		>
 		</div>
 	</Section>
@@ -159,8 +161,6 @@ import SectionClientes from "@/components/SectionClientes.astro";
 		</div>
 	</SectionClientes>
 
-	<!-- Descargas -->
-
 	<!-- Eficiencia / Calidad / Seguridad -->
 	<SectionMedia
 		id="valores"
@@ -171,60 +171,139 @@ import SectionClientes from "@/components/SectionClientes.astro";
 		srcWebm={`${import.meta.env.BASE_URL}videos/videoplayback.webm`}
 	>
 		<p class="text-slate-700 leading-relaxed">
-			Nuestra trayectoriNuestra trayectoria es el resultado de una
-			política de crecimiento basada en innovación tecnológica,
-			capacitación permanente y equipamiento de última generación.
-			Mejoramos la calidad de vida de nuestros clientes agregando valor
-			con obras seguras y eficientes, garantizando la fiabilidad de cada
-			proceso. A lo largo de los años hemos consolidado relaciones de
-			confianza gracias a nuestra seriedad y compromiso. Cada proyecto es
-			abordado con responsabilidad, cuidando cada detalle desde la
-			planificación hasta la entrega final. Creemos en el trabajo en
-			equipo y en la comunicación transparente con nuestros clientes,
-			pilares que nos permiten alcanzar resultados sostenibles y
-			duraderos. Nos motiva dejar una huella positiva en la comunidad,
-			desarrollando soluciones que combinan innovación, seguridad y
-			respeto por el entorno.
+			Nuestra trayectoria es el resultado de una política de crecimiento
+			basada en innovación tecnológica, capacitación permanente y
+			equipamiento de última generación. Mejoramos la calidad de vida de
+			nuestros clientes agregando valor con obras seguras y eficientes,
+			garantizando la fiabilidad de cada proceso. A lo largo de los años
+			hemos consolidado relaciones de confianza gracias a nuestra seriedad
+			y compromiso. Cada proyecto es abordado con responsabilidad,
+			cuidando cada detalle desde la planificación hasta la entrega final.
+			Creemos en el trabajo en equipo y en la comunicación transparente
+			con nuestros clientes, pilares que nos permiten alcanzar resultados
+			sostenibles y duraderos. Nos motiva dejar una huella positiva en la
+			comunidad, desarrollando soluciones que combinan innovación,
+			seguridad y respeto por el entorno.
 		</p>
 	</SectionMedia>
 
 	<!-- Contacto -->
-	<Section
-		id="contacto"
-		title="Contacto"
-		subtitle="Escribinos y coordinamos tu proyecto"
-	>
-		<form class="space-y-3">
-			<input
-				class="w-full border rounded px-3 py-2"
-				placeholder="Nombre"
-				required
-			/>
-			<input
-				class="w-full border rounded px-3 py-2"
-				type="email"
-				placeholder="Email"
-				required
-			/>
-			<textarea
-				class="w-full border rounded px-3 py-2"
-				placeholder="Mensaje"
-				rows="4"></textarea>
-			<button
-				class="px-5 py-3 rounded-lg bg-yellow-400 text-black font-semibold"
-				>Enviar</button
+	<section id="contacto" class="py-20 bg-white">
+		<div
+			class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start"
+		>
+			<!-- Izquierda: datos e interacción -->
+			<div class="space-y-5">
+				<h2
+					class="text-3xl md:text-4xl font-extrabold text-neutral-900"
+				>
+					Contacto
+				</h2>
+				<p class="text-neutral-600">
+					Escribinos y coordinamos tu proyecto.
+				</p>
+
+				<div
+					class="rounded-2xl border border-neutral-200 p-6 space-y-4"
+				>
+					<div class="flex items-start gap-3">
+						<svg
+							class="h-6 w-6 text-yellow-400 mt-1"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							><path
+								d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5a2.5 2.5 0 0 1 0 5Z"
+							></path></svg
+						>
+						<div>
+							<p class="font-semibold">Ubicación</p>
+							<p class="text-neutral-700">
+								Ruta Provincial 17, km 3,5 – Añelo, Neuquén
+							</p>
+						</div>
+					</div>
+
+					<div class="flex items-start gap-3">
+						<svg
+							class="h-6 w-6 text-yellow-400 mt-1"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							><path
+								d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25a11.4 11.4 0 0 0 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 8a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1a11.4 11.4 0 0 0 .6 3.6a1 1 0 0 1-.25 1Z"
+							></path></svg
+						>
+						<div>
+							<p class="font-semibold">Teléfonos</p>
+							<p class="text-neutral-700">
+								2975362519 – 2974046488
+							</p>
+						</div>
+					</div>
+
+					<div class="flex items-start gap-3">
+						<svg
+							class="h-6 w-6 text-yellow-400 mt-1"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							><path
+								d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4l-8 5L4 8V6l8 5l8-5v2Z"
+							></path></svg
+						>
+						<div>
+							<p class="font-semibold">Email</p>
+							<p>
+								<a
+									href="mailto:info@southmining-sa.com"
+									class="text-neutral-700 underline hover:text-yellow-400"
+								>
+									info@southmining-sa.com
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Botón WhatsApp con hover animado -->
+				<a
+					href="https://wa.me/541160145234?text=Hola%2C%20quisiera%20coordinar%20un%20proyecto%20con%20SMSA."
+					target="_blank"
+					rel="noopener"
+					class="group relative inline-flex items-center gap-2 rounded-xl bg-neutral-900 text-white px-5 py-3 font-semibold transition hover:translate-y-[-1px]"
+				>
+					<span
+						class="absolute inset-0 rounded-xl ring-2 ring-yellow-400/20 opacity-0 group-hover:opacity-100 transition"
+					></span>
+					<span
+						class="absolute -z-10 inset-0 rounded-xl bg-yellow-400/10 blur-lg scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition"
+					></span>
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"
+						><path
+							d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.49 0 .17 5.33.17 11.9c0 2.09.55 4.09 1.61 5.88L0 24l6.4-1.68a11.8 11.8 0 0 0 5.66 1.46h.01c6.57 0 11.9-5.33 11.9-11.9c0-3.18-1.24-6.17-3.45-8.4Z"
+						></path></svg
+					>
+					WhatsApp directo
+				</a>
+			</div>
+
+			<!-- Derecha: mapa incrustado -->
+			<div
+				class="rounded-2xl overflow-hidden border border-neutral-200 h-[420px]"
 			>
-		</form>
-		<div class="space-y-2 text-sm">
-			<p>Lun a Vie 9–18 hs</p>
-			<p>Tel: 2975362519 – 2974046488</p>
-			<p>Email: info@southmining-sa.com</p>
-			<a
-				class="px-5 py-3 inline-block rounded-lg border"
-				href="https://wa.me/541160145234">WhatsApp directo</a
-			>
+				<iframe
+					title="Ubicación SMSA en Añelo"
+					width="100%"
+					height="100%"
+					style="border:0;"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					src={"https://www.google.com/maps?q=" +
+						encodeURIComponent(
+							"Ruta Provincial 17 km 3,5, Añelo, Neuquén",
+						) +
+						"&output=embed"}></iframe>
+			</div>
 		</div>
-	</Section>
+	</section>
 
 	<Footer />
 </BaseLayout>
